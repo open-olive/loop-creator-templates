@@ -159,10 +159,7 @@
           "button": {
             "type": "boolean"
           }
-        },
-        "required": [
-          "object"
-        ]
+        }
       }
     }
 {{ /if }} 
