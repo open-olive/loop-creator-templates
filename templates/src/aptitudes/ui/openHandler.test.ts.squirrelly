@@ -13,7 +13,7 @@ jest.mock('../../whispers', () => ({
   })),
   IntroWhisperSimple: {
     show: jest.fn(() => mockIntroWhisperSimpleShow()),
-  }
+  },
 }));
 
 describe('Open Handler', () => {

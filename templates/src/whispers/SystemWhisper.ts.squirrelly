@@ -13,8 +13,8 @@ export default {
     const markdown{{it.isTypeScript ? ': whisper.Markdown' : ''}} = {
       type: whisper.WhisperComponentType.Markdown,
       body: stripIndent`
-      # Your operating system is:
-      ${operatingSystem}
+        # Your operating system is:
+        ${operatingSystem}
       `,
     };
 

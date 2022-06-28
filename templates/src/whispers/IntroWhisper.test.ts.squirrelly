@@ -31,9 +31,9 @@ describe('Intro Whisper', () => {
       expect.objectContaining({
         type: whisper.WhisperComponentType.CollapseBox,
         children: [
-          expect.objectContaining({ 
+          expect.objectContaining({
             type: whisper.WhisperComponentType.Markdown,
-          })
+          }),
         ],
       }),
       expect.objectContaining({

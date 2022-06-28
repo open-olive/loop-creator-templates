@@ -71,7 +71,7 @@ describe('Project Startup', () => {
     expect(clipboardListener.listen).toBeCalled();
 {{ /if }}
 {{ @if (it.aptitudes.includes('cursor')) }}
-    expect(cursorListener).toBeCalled();
+    expect(cursorListener.run).toBeCalled();
 {{ /if }}
 {{ @if (it.aptitudes.includes('config')) }}
     expect(configExample.run).toBeCalled();

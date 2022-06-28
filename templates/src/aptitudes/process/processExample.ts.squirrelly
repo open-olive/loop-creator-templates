@@ -1,6 +1,6 @@
-import { process } from "@oliveai/ldk";
+import { process } from '@oliveai/ldk';
 
-import { ProcessWhisper } from "../../whispers";
+import { ProcessWhisper } from '../../whispers';
 
 const run = async () => {
   const processList = await process.all();

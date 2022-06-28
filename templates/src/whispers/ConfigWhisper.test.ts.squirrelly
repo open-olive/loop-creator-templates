@@ -55,7 +55,6 @@ describe('Config Whisper', () => {
     expect(mockWhisperClose).toBeCalled();
   });
 
-
   it.each`
     scenario              | error
     ${'without an error'} | ${undefined}

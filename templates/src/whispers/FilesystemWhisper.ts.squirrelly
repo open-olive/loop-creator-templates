@@ -13,8 +13,8 @@ export default {
     const markdown{{it.isTypeScript ? ': whisper.Markdown' : ''}} = {
       type: whisper.WhisperComponentType.Markdown,
       body: stripIndent`
-      # Example File Contents
-      ${fileContents}
+        # Example File Contents
+        ${fileContents}
       `,
     };
 

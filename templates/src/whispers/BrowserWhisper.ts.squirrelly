@@ -15,8 +15,9 @@ export default {
     const markdown{{it.isTypeScript ? ': whisper.Markdown' : ''}} = {
       type: whisper.WhisperComponentType.Markdown,
       body: stripIndent`
-      ## Current id of opened browser page:
-      > ${cursorText}`,
+        ## Current id of opened browser page:
+        > ${cursorText}
+      `,
     };
 
     components.push(markdown);
