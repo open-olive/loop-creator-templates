@@ -17,7 +17,7 @@ jest.mock('../../whispers', () => {
 
 describe('Network Example', () => {
   beforeAll(() => {
-    jest.useFakeTimers('modern');
+    jest.useFakeTimers();
     jest.setSystemTime(new Date(2021, 0));
   });
   afterEach(() => {

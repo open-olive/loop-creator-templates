@@ -50,16 +50,16 @@ describe('Cursor Whisper', () => {
     newWhisper.show();
     await Promise.resolve();
 
-    let [, button] = newWhisper.createComponents();
+    let [, button] = newWhisper.createComponents(){{it.isTypeScript ? ' as [unknown, whisper.Button]' : ''}};
 
-    await button.onClick(undefined, newWhisper.whisper);
+    await button.onClick(undefined, newWhisper.whisper{{it.isTypeScript ? ' as whisper.Whisper' : ''}});
     expect(cursor.listenPosition).toBeCalledWith(newWhisper.cursorListenerHandler);
     expect(newWhisper.listener).toBeDefined();
     expect(newWhisper.props.listening).toBeTruthy();
 
-    [, button] = newWhisper.createComponents();
+    [, button] = newWhisper.createComponents(){{it.isTypeScript ? ' as [unknown, whisper.Button]' : ''}};
 
-    await button.onClick(undefined, newWhisper.whisper);
+    await button.onClick(undefined, newWhisper.whisper{{it.isTypeScript ? ' as whisper.Whisper' : ''}});
     expect(mockListenerCancel).toBeCalled();
     expect(newWhisper.listener).toBeUndefined();
     expect(newWhisper.props.listening).toBeFalsy();

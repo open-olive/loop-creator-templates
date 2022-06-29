@@ -1,6 +1,25 @@
 import { cursor, whisper } from '@oliveai/ldk';
+{{ @if (it.isTypeScript) }}
+import { Cancellable } from '@oliveai/ldk/dist/cancellable';
+{{ /if }}
 
+{{ @if (it.isTypeScript) }}
+interface Props {
+  cursorPos: cursor.Position;
+  listening: boolean;
+}
+{{ /if }}
 export default class CursorWhisper {
+{{ @if (it.isTypeScript) }}
+  whisper: whisper.Whisper | undefined;
+
+  label: string;
+
+  listener?: Cancellable;
+
+  props: Props;
+
+{{ /if }}
   constructor() {
     this.whisper = undefined;
     this.label = 'Cursor Aptitude Fired';
@@ -13,7 +32,7 @@ export default class CursorWhisper {
     this.cursorListenerHandler = this.cursorListenerHandler.bind(this);
   }
 
-  cursorListenerHandler(cursorPos) {
+  cursorListenerHandler(cursorPos{{it.isTypeScript ? ': cursor.Position' : ''}}) {
     this.update({ cursorPos });
   }
 
@@ -23,7 +42,7 @@ export default class CursorWhisper {
       listening,
     } = this.props;
 
-    const message = {
+    const message{{it.isTypeScript ? ': whisper.Message' : ''}} = {
       type: whisper.WhisperComponentType.Message,
       header: listening
         ? 'Cursor Position is currently:'
@@ -31,12 +50,12 @@ export default class CursorWhisper {
       body: listening ? `(${x}, ${y})` : undefined,
     };
 
-    const button = {
+    const button{{it.isTypeScript ? ': whisper.Button' : ''}} = {
       type: whisper.WhisperComponentType.Button,
       label: `${listening ? 'Stop' : 'Start'} listening`,
       onClick: async () => {
         if (listening) {
-          this.listener.cancel();
+          this.listener?.cancel();
           delete this.listener;
           this.update({ listening: false });
         } else {
@@ -61,10 +80,10 @@ export default class CursorWhisper {
       });
   }
 
-  update(props) {
+  update(props{{it.isTypeScript ? ': Partial<Props>' : '' | safe}}) {
     this.props = { ...this.props, ...props };
     this.whisper?.update({
-      label: this.props.label || this.label,
+      label: this.label,
       components: this.createComponents(),
     });
   }
@@ -73,7 +92,7 @@ export default class CursorWhisper {
     this.whisper?.close(CursorWhisper.onClose);
   }
 
-  static onClose(err) {
+  static onClose(err{{it.isTypeScript ? '?: Error' : ''}}) {
     if (err) {
       console.error('There was an error closing Cursor whisper', err);
     }
