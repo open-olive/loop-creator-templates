@@ -4,8 +4,8 @@ import { whisper } from '@oliveai/ldk';
 interface Props {
   workbookText{{ it.isTypeScript ? '?: string' : '' }};
 }
-{{ /if }}
 
+{{ /if }}
 export const onClose = (err{{ it.isTypeScript ? '?: Error' : '' }}) => {
   if (err) {
     console.error('Error closing Document Whisper', err);

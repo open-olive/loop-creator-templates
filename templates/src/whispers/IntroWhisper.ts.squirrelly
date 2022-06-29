@@ -193,7 +193,7 @@ export default class IntroWhisper {
       onChange: (_error, val) => {
         console.log('Autocomplete section changed: ', val);
       },
-      onSelect: (error, value, onSelectWhisper) => {
+      onSelect: (error, value) => {
         console.log(`Received selected value: ${JSON.stringify(value)}`);
       },
       options: autocompleteOptions,
@@ -203,7 +203,7 @@ export default class IntroWhisper {
       label: 'Multi Select Autocomplete',
       loading: true,
       multiple: true,
-      onSelect: (error, value, onSelectWhisper) => {
+      onSelect: (error, value) => {
         console.log(`Received selected value: ${JSON.stringify(value)}`);
       },
       options: autocompleteOptions,

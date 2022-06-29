@@ -1,32 +1,82 @@
-import { whisper } from '@oliveai/ldk';
+import { cursor, whisper } from '@oliveai/ldk';
 
-{{ @if (it.isTypeScript) }}
-interface Props {
-  cursorText{{ it.isTypeScript ? '?: string' : '' }};
-}
-{{ /if }}
-
-export const onClose = (err{{ it.isTypeScript ? '?: Error' : '' }}) => {
-  if (err) {
-    console.error('Error closing Cursor Whisper', err);
-  }
-};
-
-export default {
-  show: (cursorText{{ it.isTypeScript ? '?: string' : '' }}) => {
-    const components{{ it.isTypeScript ? ': whisper.Component[]' : '' }} = [];
-
-    const message{{ it.isTypeScript ? ': whisper.Message' : '' }} = {
-      type: whisper.WhisperComponentType.Message,
-      body: cursorText,
+export default class CursorWhisper {
+  constructor() {
+    this.whisper = undefined;
+    this.label = 'Cursor Aptitude Fired';
+    this.listener = undefined;
+    this.props = {
+      cursorPos: { x: 0, y: 0 },
+      listening: false,
     };
 
-    components.push(message);
+    this.cursorListenerHandler = this.cursorListenerHandler.bind(this);
+  }
 
-    return whisper.create({
-      components,
-      label: 'Cursor Aptitude Fired',
-      onClose,
+  cursorListenerHandler(cursorPos) {
+    this.update({ cursorPos });
+  }
+
+  createComponents() {
+    const {
+      cursorPos: { x, y },
+      listening,
+    } = this.props;
+
+    const message = {
+      type: whisper.WhisperComponentType.Message,
+      header: listening
+        ? 'Cursor Position is currently:'
+        : 'Start listening to see cursor position',
+      body: listening ? `(${x}, ${y})` : undefined,
+    };
+
+    const button = {
+      type: whisper.WhisperComponentType.Button,
+      label: `${listening ? 'Stop' : 'Start'} listening`,
+      onClick: async () => {
+        if (listening) {
+          this.listener.cancel();
+          delete this.listener;
+          this.update({ listening: false });
+        } else {
+          this.listener = await cursor.listenPosition(this.cursorListenerHandler);
+          this.update({ listening: true });
+        }
+      },
+    };
+
+    return [message, button];
+  }
+
+  show() {
+    whisper
+      .create({
+        components: this.createComponents(),
+        label: this.label,
+        onClose: CursorWhisper.onClose,
+      })
+      .then((newWhisper) => {
+        this.whisper = newWhisper;
+      });
+  }
+
+  update(props) {
+    this.props = { ...this.props, ...props };
+    this.whisper?.update({
+      label: this.props.label || this.label,
+      components: this.createComponents(),
     });
-  },
-};
+  }
+
+  close() {
+    this.whisper?.close(CursorWhisper.onClose);
+  }
+
+  static onClose(err) {
+    if (err) {
+      console.error('There was an error closing Cursor whisper', err);
+    }
+    console.log('Cursor whisper closed');
+  }
+}

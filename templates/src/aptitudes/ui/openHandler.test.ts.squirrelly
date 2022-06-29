@@ -1,5 +1,3 @@
-import { ui } from '@oliveai/ldk';
-
 import { handler } from './openHandler';
 
 jest.mock('@oliveai/ldk');

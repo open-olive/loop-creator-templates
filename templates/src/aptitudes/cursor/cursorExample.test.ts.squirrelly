@@ -1,0 +1,19 @@
+import { whisper } from '@oliveai/ldk';
+
+import cursorExample from './cursorExample';
+
+jest.mock('@oliveai/ldk');
+
+describe('Cursor Example', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('should create whisper when started up', () => {
+    whisper.create = jest.fn().mockResolvedValue({});
+
+    cursorExample.run();
+
+    expect(whisper.create).toBeCalled();
+  });
+});

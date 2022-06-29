@@ -1,17 +1,17 @@
-import cursorListener from './cursorListener.ts.squirrelly';
-import cursorListenerTest from './cursorListener.test.ts.squirrelly';
+import cursorExample from './cursorExample.ts.squirrelly';
+import cursorExampleTest from './cursorExample.test.ts.squirrelly';
 import { FileMap } from '@/types';
 
 const fileMap: FileMap = {
-  cursorListenerTest: {
-    fileName: 'cursorListener.test.ts',
+  cursorExampleTest: {
+    fileName: 'cursorExample.test.ts',
     aptitude: 'cursor',
   },
-  cursorListener: { fileName: 'cursorListener.ts', aptitude: 'cursor' },
+  cursorExample: { fileName: 'cursorExample.ts', aptitude: 'cursor' },
 };
 
 export default {
-  cursorListenerTest,
-  cursorListener,
+  cursorExampleTest,
+  cursorExample,
   fileMap,
 };

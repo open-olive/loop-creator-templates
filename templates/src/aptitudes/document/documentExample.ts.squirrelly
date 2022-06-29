@@ -1,5 +1,7 @@
 import { document } from '@oliveai/ldk';
+{{ @if (it.isTypeScript) }}
 import { Workbook } from '@oliveai/ldk/dist/document/types';
+{{ /if }}
 import { DocumentWhisper } from '../../whispers';
 
 const run = async () => {

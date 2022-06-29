@@ -4,6 +4,9 @@
 {{ #else }}
   "extends": ["airbnb-base", "plugin:jest/recommended", "plugin:prettier/recommended"],
 {{ /if }}
+  "parserOptions": {
+    "ecmaVersion": 2020
+  },
   "rules": {
 {{ @if (it.isTypeScript) }}
     "@typescript-eslint/explicit-module-boundary-types": "off",

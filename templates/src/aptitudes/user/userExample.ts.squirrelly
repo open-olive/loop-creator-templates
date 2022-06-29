@@ -5,8 +5,8 @@ import { Buffer } from 'buffer';
 
 import { UserWhisper } from '../../whispers';
 
-const dashRegExp = new RegExp('-', 'g');
-const underscoreRegExp = new RegExp('_', 'g');
+const dashRegExp = /-/g;
+const underscoreRegExp = /_/g;
 
 function atob(b64EncodedString{{ it.isTypeScript ? ': string' : '' }}) {
   // RFC 4648 substitues - for + and _ for / to be url and filesystem safe
