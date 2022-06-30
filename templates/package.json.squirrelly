@@ -38,10 +38,10 @@
 {{ @if (it.aptitudes.includes('user')) }}
     "buffer": "^6.0.3",
 {{ /if }}
-    "common-tags": "^1.8.2",
 {{ @if (it.aptitudes.includes('network')) }}
-    "date-fns": "^2.28.0"
+    "date-fns": "^2.28.0",
 {{ /if }}
+    "common-tags": "^1.8.2"
   },
 {{ @if (!it.isTypeScript) }}
   "babel": {
