@@ -23,14 +23,14 @@ export const createComponents = (recalls{{ it.isTypeScript ? ': Recall[]' : '' }
       text: `${recall.recalling_firm} (${recall.recall_initiation_date})`,
       onClick: () => {
         const markdown = stripIndent`
-        # Recalling Firm
-        ${recall.recalling_firm}
-        # Recall Number
-        ${recall.recall_number}
-        # Product Description
-        ${recall.product_description}
-        # Reason for Recall
-        ${recall.reason_for_recall}
+          # Recalling Firm
+          ${recall.recalling_firm}
+          # Recall Number
+          ${recall.recall_number}
+          # Product Description
+          ${recall.product_description}
+          # Reason for Recall
+          ${recall.reason_for_recall}
         `;
 
         whisper.create({

@@ -7,7 +7,7 @@ import {
   clipboardListener,
 {{ /if }}
 {{ @if (it.aptitudes.includes('cursor')) }}
-  cursorListener,
+  cursorExample,
 {{ /if }}
 {{ @if (it.aptitudes.includes('config')) }}
   configExample,
@@ -71,7 +71,7 @@ describe('Project Startup', () => {
     expect(clipboardListener.listen).toBeCalled();
 {{ /if }}
 {{ @if (it.aptitudes.includes('cursor')) }}
-    expect(cursorListener).toBeCalled();
+    expect(cursorExample.run).toBeCalled();
 {{ /if }}
 {{ @if (it.aptitudes.includes('config')) }}
     expect(configExample.run).toBeCalled();

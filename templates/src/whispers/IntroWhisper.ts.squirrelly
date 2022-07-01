@@ -52,8 +52,8 @@ export default class IntroWhisper {
     const collapsibleContent{{it.isTypeScript ? ': whisper.Markdown' : ''}} = {
       type: whisper.WhisperComponentType.Markdown,
       body: stripIndent`
-      # Collapsible Section
-      Content you put here can be expanded/collapsed.
+        # Collapsible Section
+        Content you put here can be expanded/collapsed.
       `,
     };
     const collapseBox{{it.isTypeScript ? ': whisper.CollapseBox' : ''}} = {
@@ -179,7 +179,7 @@ export default class IntroWhisper {
         console.log('Radio button option selected: ', val);
       },
     };
-        const autocompleteOptions = [
+    const autocompleteOptions = [
       { label: 'Value 1', value: '1' },
       { label: 'Value 2', value: '2' },
       { label: 'Value 3', value: '3' },
@@ -193,7 +193,7 @@ export default class IntroWhisper {
       onChange: (_error, val) => {
         console.log('Autocomplete section changed: ', val);
       },
-      onSelect: (error, value, onSelectWhisper) => {
+      onSelect: (error, value) => {
         console.log(`Received selected value: ${JSON.stringify(value)}`);
       },
       options: autocompleteOptions,
@@ -203,14 +203,14 @@ export default class IntroWhisper {
       label: 'Multi Select Autocomplete',
       loading: true,
       multiple: true,
-      onSelect: (error, value, onSelectWhisper) => {
+      onSelect: (error, value) => {
         console.log(`Received selected value: ${JSON.stringify(value)}`);
       },
       options: autocompleteOptions,
       tooltip: 'tooltip',
       value: '5',
     };
-    const dateTimeInput{{it.isTypeScript ? ': whisper.DateTimeInput' : ''}}= {
+    const dateTimeInput{{it.isTypeScript ? ': whisper.DateTimeInput' : ''}} = {
       type: whisper.WhisperComponentType.DateTimeInput,
       dateTimeType: whisper.DateTimeType.Date,
       tooltip: 'Date',
@@ -222,7 +222,7 @@ export default class IntroWhisper {
     const dropZone{{it.isTypeScript ? ': whisper.DropZone' : ''}} = {
       type: whisper.WhisperComponentType.DropZone,
       onDrop: () => {
-        console.log('file deropped')
+        console.log('file dropped');
       },
       label: 'File Components',
     };
@@ -237,7 +237,7 @@ export default class IntroWhisper {
       body: 'section Title in center',
       type: whisper.WhisperComponentType.SectionTitle,
     };
-    const breadcrumbs{{it.isTypeScript ? ': whisper.Breadcrumbs' : ''}} ={
+    const breadcrumbs{{it.isTypeScript ? ': whisper.Breadcrumbs' : ''}} = {
       type: whisper.WhisperComponentType.Breadcrumbs,
       links: [
         {
@@ -254,7 +254,7 @@ export default class IntroWhisper {
         },
       ],
     };
-    const progress{{it.isTypeScript ? ': whisper.Progress' : ''}} = {        
+    const progress{{it.isTypeScript ? ': whisper.Progress' : ''}} = {
       type: whisper.WhisperComponentType.Progress,
       determinate: 30,
     };

@@ -24,16 +24,16 @@ describe('User Whisper', () => {
       expect.objectContaining({
         type: whisper.WhisperComponentType.Markdown,
       }),
-    expect.objectContaining({
+      expect.objectContaining({
         type: whisper.WhisperComponentType.Markdown,
       }),
-    expect.objectContaining({
+      expect.objectContaining({
         type: whisper.WhisperComponentType.Markdown,
-        body: 'Current JWT for user with email: a@a.com'
+        body: 'Current JWT for user with email: a@a.com',
       }),
-    expect.objectContaining({
+      expect.objectContaining({
         type: whisper.WhisperComponentType.Message,
-        body: 'abcdefg'
+        body: 'abcdefg',
       }),
     ];
 

@@ -9,12 +9,13 @@ export const onClose = (err{{it.isTypeScript ? '?: Error' : ''}}) => {
 };
 
 export default {
-  show: async (createLoopDefaultSettings {{it.isTypeScript ? ': string' : ''}}) => {
+  show: async (createLoopDefaultSettings{{it.isTypeScript ? ': string' : ''}}) => {
     const markdown{{it.isTypeScript ? ': whisper.Markdown' : ''}} = {
       type: whisper.WhisperComponentType.Markdown,
       body: stripIndent`
-      ## createLoopDefaultSettings now stored as key:  
-      > ${createLoopDefaultSettings}`,
+        ## createLoopDefaultSettings now stored as key:
+        > ${createLoopDefaultSettings}
+      `,
     };
 
     return whisper.create({

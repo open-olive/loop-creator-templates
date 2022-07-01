@@ -15,9 +15,10 @@ export default {
     const markdown{{it.isTypeScript ? ': whisper.Markdown' : ''}} = {
       type: whisper.WhisperComponentType.Markdown,
       body: stripIndent`
-            ## Current stored settings in config:
-            To show hidden button feature, make sure config settings include \`{ feature: {button: true } }\` 
-            > ${configSettings}`,
+        ## Current stored settings in config:
+        To show hidden button feature, make sure config settings include \`{ feature: {button: true } }\`
+        > ${configSettings}
+      `,
     };
     components.push(markdown);
 

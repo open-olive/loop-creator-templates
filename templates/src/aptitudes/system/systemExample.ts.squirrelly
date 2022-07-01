@@ -3,9 +3,9 @@ import { system } from '@oliveai/ldk';
 import { SystemWhisper } from '../../whispers';
 
 const run = async () => {
-    const os = await system.operatingSystem();
+  const os = await system.operatingSystem();
 
-    await SystemWhisper.show(os);
+  await SystemWhisper.show(os);
 };
 
 export default { run };

@@ -5,7 +5,7 @@ jest.mock('@oliveai/ldk');
 
 const mockWhisperClose = jest.fn();
 
-const TEST_PARAM = [{pid:0, arguments:"", command:"Test"}];
+const TEST_PARAM = [{ pid: 0, arguments: '', command: 'Test' }];
 
 describe('Process Whisper', () => {
   beforeEach(() => {
@@ -22,7 +22,7 @@ describe('Process Whisper', () => {
     const expected = [
       expect.objectContaining({
         type: whisper.WhisperComponentType.Markdown,
-        body: "Test (0)",
+        body: 'Test (0)',
       }),
     ];
 

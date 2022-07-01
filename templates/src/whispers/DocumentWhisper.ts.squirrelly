@@ -4,13 +4,13 @@ import { whisper } from '@oliveai/ldk';
 interface Props {
   workbookText{{ it.isTypeScript ? '?: string' : '' }};
 }
-{{ /if }}
 
+{{ /if }}
 export const onClose = (err{{ it.isTypeScript ? '?: Error' : '' }}) => {
   if (err) {
-    console.error('Error closing Document Whisper', err)
+    console.error('Error closing Document Whisper', err);
   }
-}
+};
 
 export default {
   show: (workbookText{{ it.isTypeScript ? '?: string' : '' }}) => {
@@ -18,7 +18,7 @@ export default {
 
     const message{{ it.isTypeScript ? ': whisper.Message' : '' }} = {
       type: whisper.WhisperComponentType.Message,
-      body: `${workbookText ? workbookText : 'Here'}`,
+      body: `${workbookText || 'Here'}`,
     };
 
     components.push(message);
@@ -27,6 +27,6 @@ export default {
       components,
       label: 'Document Aptitude Fired',
       onClose,
-    })
-  }
-}
+    });
+  },
+};

@@ -23,8 +23,8 @@ describe('Browser Whisper', () => {
       expect.objectContaining({
         components: [
           {
-            type: whisper.WhisperComponentType.Message,
-            body: TEST_PARAM,
+            type: whisper.WhisperComponentType.Markdown,
+            body: expect.stringContaining(TEST_PARAM),
           },
         ],
         label: 'Browser Aptitude Fired',
@@ -42,7 +42,7 @@ describe('Browser Whisper', () => {
     onClose(error);
 
     if (error) {
-      expect(console.error).toBeCalledWith('There was an error closing Browser whisper', error);
+      expect(console.error).toBeCalledWith('There was an error closing the Browser whisper', error);
     }
     expect(console.log).toBeCalledWith('Browser whisper closed');
   });

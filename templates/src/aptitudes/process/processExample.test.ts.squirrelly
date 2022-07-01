@@ -1,6 +1,6 @@
 import { process } from '@oliveai/ldk';
 {{ @if (it.isTypeScript) }}
-import { ProcessInfo } from '@oliveai/ldk/dist/process'
+import { ProcessInfo } from '@oliveai/ldk/dist/process';
 {{ /if }}
 import { ProcessWhisper } from '../../whispers';
 import processExample from './processExample';
@@ -24,10 +24,10 @@ describe('Process Example', () => {
   it('should create the whisper after retreiving all processes', async () => {
     const processStub{{it.isTypeScript ? ': ProcessInfo' : ''}} = {
       pid: 100,
-      command: "Test",
-      arguments: "",
+      command: 'Test',
+      arguments: '',
     };
-    process.all  = jest.fn().mockResolvedValueOnce([processStub]);
+    process.all = jest.fn().mockResolvedValueOnce([processStub]);
 
     await processExample.run();
 

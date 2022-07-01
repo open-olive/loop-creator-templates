@@ -1,5 +1,4 @@
 import { user } from '@oliveai/ldk';
-import { UserWhisper } from '../../whispers';
 import userExample from './userExample';
 
 jest.mock('@oliveai/ldk');

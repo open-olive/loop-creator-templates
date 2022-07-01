@@ -1,6 +1,8 @@
 import { document } from '@oliveai/ldk';
+{{ @if (it.isTypeScript) }}
 import { Workbook } from '@oliveai/ldk/dist/document/types';
-import { DocumentWhisper } from '../../whispers/';
+{{ /if }}
+import { DocumentWhisper } from '../../whispers';
 
 const run = async () => {
   // Create a workbook Object.

@@ -1,0 +1,5 @@
+import { CursorWhisper } from '../../whispers';
+
+const run = () => new CursorWhisper().show();
+
+export default { run };
